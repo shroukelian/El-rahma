@@ -1,0 +1,567 @@
+
+:root {
+  --navy: #092544;
+  --navy-light: #12395f;
+  --gold: #c99519;
+  --gold-light: #f1c75b;
+  --paper: #ffffff;
+  --bg: #f1f4f8;
+  --text: #10243c;
+  --border: #d5a32c;
+  --muted: #65758a;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px max(20px, calc((100% - 1150px) / 2));
+  background: var(--navy);
+  color: white;
+  border-bottom: 4px solid var(--gold);
+}
+
+.topbar h1 {
+  margin: 0;
+  color: var(--gold-light);
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  color: #e4eaf2;
+}
+
+.container {
+  width: min(1150px, calc(100% - 28px));
+  margin: 28px auto 60px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e1e6ee;
+  border-top: 3px solid var(--gold);
+  border-radius: 14px;
+  padding: clamp(16px, 3vw, 28px);
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px rgba(9, 37, 68, .06);
+}
+
+.login-panel {
+  max-width: 460px;
+  margin: 45px auto;
+}
+
+h2 {
+  color: var(--navy);
+  margin-top: 0;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.toolbar h2 {
+  margin: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #b9c6d5;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 149, 25, .13);
+}
+
+input[readonly] {
+  background: #eef2f7;
+  font-weight: bold;
+}
+
+textarea {
+  resize: vertical;
+}
+
+small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.btn {
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: var(--navy);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background: var(--navy-light);
+}
+
+.btn.secondary {
+  background: white;
+  color: var(--navy);
+  border-color: #b9c6d5;
+}
+
+.btn.whatsapp {
+  background: #128c4a;
+  border-color: #128c4a;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: var(--danger);
+}
+
+.invoice-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.invoice-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #e0e6ed;
+  border-right: 4px solid var(--gold);
+  border-radius: 8px;
+}
+
+.invoice-row h3 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.invoice-row p {
+  margin: 3px 0 0;
+  color: var(--muted);
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.row-actions .btn {
+  padding: 6px 11px;
+  font-size: 13px;
+}
+
+.invoice-paper {
+  background: white;
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--navy);
+}
+
+.invoice-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.invoice-brand h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.invoice-brand p {
+  margin: 5px 0 0;
+}
+
+.invoice-mark {
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 110px;
+}
+
+.invoice-title {
+  text-align: center;
+  margin: 18px 0;
+  padding: 10px;
+  color: white;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  font-size: 25px;
+}
+
+.invoice-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.invoice-meta div,
+.invoice-section {
+  padding: 12px;
+  border: 1px solid #dfc16e;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.invoice-section {
+  margin: 12px 0;
+}
+
+.invoice-section h3 {
+  margin: -12px -12px 12px;
+  padding: 8px 12px;
+  color: white;
+  background: var(--navy);
+  border-radius: 7px 7px 0 0;
+  font-size: 16px;
+}
+
+.invoice-line {
+  padding: 8px 0;
+  border-bottom: 1px solid #d7dee8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.invoice-line:last-child {
+  border-bottom: 0;
+}
+
+.invoice-footer {
+  margin-top: 22px;
+  padding: 14px;
+  text-align: center;
+  color: white;
+  background: var(--navy);
+  border-top: 3px solid var(--gold);
+  border-radius: 8px;
+}
+
+.invoice-footer strong {
+  color: var(--gold-light);
+}
+
+#formMessage {
+  color: #18794e;
+  font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+    margin-top: 16px;
+  }
+
+  .form-grid,
+  .invoice-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .actions .btn {
+    width: 100%;
+  }
+
+  .invoice-paper {
+    padding: 12px;
+  }
+
+  .invoice-brand {
+    align-items: flex-start;
+  }
+
+  .invoice-mark {
+    min-width: 80px;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #previewPanel,
+  #previewPanel * {
+    visibility: visible !important;
+  }
+
+  #previewPanel {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  #invoicePreview {
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--gold);
+    border-radius: 0;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice-section,
+  .invoice-meta,
+  .invoice-brand {
+    break-inside: avoid;
+  }
+}
+
+.back-home-container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 0;
+}
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background-color: #0b2545;
+    color: #ffffff;
+    border: 2px solid #dca51c;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+    background-color: #dca51c;
+    color: #0b2545;
+    transform: translateY(-2px);
+}
+
+.back-home-btn span {
+    font-size: 20px;
+}
+
+
+
+/* ================================
+   MOBILE RESPONSIVE - INVOICES
+================================ */
+
+@media (max-width: 768px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* الهيدر */
+    header {
+        padding: 18px 12px !important;
+    }
+
+    header h1 {
+        font-size: 23px !important;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        font-size: 13px !important;
+        line-height: 1.8;
+    }
+
+    /* زر العودة للرئيسية */
+    .back-home-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 14px 0 0;
+    }
+
+    .back-home-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        width: auto;
+        max-width: 100%;
+        padding: 10px 14px;
+        font-size: 13px;
+        line-height: 1.6;
+        white-space: normal;
+        text-align: center;
+        border-radius: 8px;
+        transform: none;
+    }
+
+    /* المحتوى الرئيسي */
+    main,
+    .container,
+    .invoice-container {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    /* بطاقات المحتوى */
+    .login-card,
+    .login-box,
+    .card {
+        width: 100%;
+        max-width: 100%;
+        margin: 24px auto;
+        padding: 22px 16px;
+        border-radius: 14px;
+    }
+
+    /* العناوين */
+    h2 {
+        font-size: 22px;
+        line-height: 1.5;
+    }
+
+    /* الحقول */
+    input,
+    select,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        font-size: 16px;
+    }
+
+    /* الأزرار */
+    button {
+        max-width: 100%;
+    }
+
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 380px) {
+
+    header h1 {
+        font-size: 20px !important;
+    }
+
+    .back-home-btn {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .login-card,
+    .login-box,
+    .card {
+        padding: 18px 12px;
+    }
+
+}

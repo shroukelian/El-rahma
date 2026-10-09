@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الفواتير | شركة الرحمة للشحن الدولي</title>
+    <link rel="stylesheet" href="invoices.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>شركة الرحمة للشحن الدولي</h1>
+            <p>إدارة أبو رحيم — نظام إصدار الفواتير</p>
+        </div>
+        <button id="logoutBtn" class="btn secondary hidden">تسجيل الخروج</button>
+
+        <div class="back-home-container">
+            <a href="index.html" class="back-home-btn">
+                <span>←</span>
+                العودة للصفحة الرئيسية
+            </a>
+        </div>
+
+
+    </header>
+
+    <main class="container">
+
+        <section id="loginPanel" class="panel login-panel">
+            <h2>دخول الإدارة</h2>
+            <p>هذه الصفحة مخصصة لإدارة الشركة.</p>
+            <form id="loginForm">
+                <label for="adminPassword">كلمة المرور</label>
+                <input id="adminPassword" type="password" required autocomplete="current-password">
+                <button class="btn" type="submit">دخول</button>
+                <p id="loginError" class="error" role="alert"></p>
+            </form>
+        </section>
+
+        <section id="appPanel" class="hidden">
+
+            <div class="toolbar">
+                <h2>إدارة الفواتير</h2>
+                <button id="newInvoiceBtn" class="btn">+ فاتورة جديدة</button>
+            </div>
+
+            <section class="panel">
+                <label for="searchInvoice">البحث برقم الفاتورة أو اسم العميل أو الهاتف</label>
+                <input id="searchInvoice" type="search" placeholder="اكتب للبحث...">
+                <div id="invoiceList" class="invoice-list"></div>
+            </section>
+
+            <section id="editorPanel" class="panel hidden">
+                <h2 id="editorTitle">إنشاء فاتورة جديدة</h2>
+
+                <form id="invoiceForm">
+                    <input type="hidden" id="invoiceId">
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="invoiceNumber">رقم الفاتورة</label>
+                            <input id="invoiceNumber" readonly>
+                        </div>
+                        <div>
+                            <label for="invoiceDate">التاريخ</label>
+                            <input id="invoiceDate" type="date" required>
+                        </div>
+                        <div>
+                            <label for="parcelCount">عدد الطرود</label>
+                            <input id="parcelCount" type="number" min="1" value="1" required>
+                        </div>
+                        <div>
+                            <label for="neighborhood">الحي / المنطقة</label>
+                            <input id="neighborhood" required>
+                        </div>
+                        <div>
+                            <label for="senderName">اسم صاحب الشحنة</label>
+                            <input id="senderName" required>
+                        </div>
+                        <div>
+                            <label for="senderPhone">رقم صاحب الشحنة</label>
+                            <input id="senderPhone" type="tel" required>
+                        </div>
+                        <div>
+                            <label for="recipientName">اسم المستلم</label>
+                            <input id="recipientName" required>
+                        </div>
+                        <div>
+                            <label for="recipientPhone">رقم المستلم</label>
+                            <input id="recipientPhone" type="tel" required>
+                        </div>
+                        <div class="full-width">
+                            <label for="recipientAddress">عنوان المستلم بالتفصيل</label>
+                            <textarea id="recipientAddress" rows="3" required></textarea>
+                        </div>
+                        <div class="full-width">
+                            <label for="shipmentDetails">تفاصيل الشحنة / ملاحظات</label>
+                            <textarea id="shipmentDetails" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <label for="shippingCost">تكلفة الشحن (اختياري)</label>
+                            <input id="shippingCost" type="number" min="0" step="0.01">
+                        </div>
+                        <div>
+                            <label for="customerWhatsApp">واتساب العميل للإرسال</label>
+                            <input id="customerWhatsApp" type="tel" placeholder="مثال: 2010XXXXXXXX">
+                            <small>اكتب مفتاح الدولة ثم الرقم، بدون علامة +.</small>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn" type="submit">حفظ الفاتورة</button>
+                        <button class="btn secondary" type="button" id="previewBtn">
+                            معاينة وطباعة
+                        </button>
+                        <button class="btn whatsapp" type="button" id="whatsappBtn">
+                            مشاركة عبر واتساب
+                        </button>
+                        <button class="btn secondary" type="button" id="cancelBtn">
+                            إلغاء
+                        </button>
+                    </div>
+                    <p id="formMessage" role="status"></p>
+                </form>
+            </section>
+
+            <section id="previewPanel" class="panel hidden">
+                <div class="toolbar no-print">
+                    <h2>معاينة الفاتورة</h2>
+                    <button id="printBtn" class="btn">طباعة / حفظ PDF</button>
+                </div>
+                <article id="invoicePreview" class="invoice-paper"></article>
+            </section>
+
+        </section>
+    </main>
+
+    <script src="invoices.js"></script>
+</body>
+
+</html>
